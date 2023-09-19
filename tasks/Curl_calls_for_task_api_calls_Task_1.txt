@@ -1,0 +1,842 @@
+ --------------------GET active tasks call --------------------------------
+C:\windows\system32>set token=e6a4ab6ecc9c4c8c5d0bf75d3b84871f3eb7f2cd
+
+C:\windows\system32>set token
+token=e6a4ab6ecc9c4c8c5d0bf75d3b84871f3eb7f2cd
+
+C:\windows\system32>curl -X GET    https://api.todoist.com/rest/v2/tasks    -H "Authorization: Bearer %token%"
+[
+        {
+                "id": "7231789890",
+                "assigner_id": null,
+                "assignee_id": null,
+                "project_id": "2319679411",
+                "section_id": null,
+                "parent_id": null,
+                "order": 1,
+                "content": "Connect my work calendar to Todoist",
+                "description": "[Calendar Integrations | Todoist](https://en.todoist.com/integrations?category=calendars&utm_source=todoist&utm_medium=in_app&utm_campaign=onboarding_project&utm_content=work)",
+                "is_completed": false,
+                "labels": [],
+                "priority": 1,
+                "comment_count": 0,
+                "creator_id": "45709149",
+                "created_at": "2023-09-15T14:38:14.648388Z",
+                "due": null,
+                "url": "https://todoist.com/showTask?id=7231789890",
+                "duration": null
+        },
+        {
+                "id": "7231789894",
+                "assigner_id": null,
+                "assignee_id": null,
+                "project_id": "2319679412",
+                "section_id": "134202312",
+                "parent_id": null,
+                "order": 1,
+                "content": "Do a weekly review of my tasks and goals",
+                "description": "",
+                "is_completed": false,
+                "labels": [],
+                "priority": 2,
+                "comment_count": 0,
+                "creator_id": "45709149",
+                "created_at": "2023-09-15T14:38:14.742706Z",
+                "due": {
+                        "date": "2023-09-17",
+                        "string": "ev sun",
+                        "lang": "en",
+                        "is_recurring": true
+                },
+                "url": "https://todoist.com/showTask?id=7231789894",
+                "duration": null
+        },
+        {
+                "id": "7231789898",
+                "assigner_id": null,
+                "assignee_id": null,
+                "project_id": "2319679412",
+                "section_id": "134202312",
+                "parent_id": null,
+                "order": 2,
+                "content": "Add more _personal_ routines",
+                "description": "e.g.: pay taxes yearly, empty the bins weekly, meditate for 10 mins ev weekday at 9am",
+                "is_completed": false,
+                "labels": [],
+                "priority": 1,
+                "comment_count": 0,
+                "creator_id": "45709149",
+                "created_at": "2023-09-15T14:38:14.871241Z",
+                "due": null,
+                "url": "https://todoist.com/showTask?id=7231789898",
+                "duration": null
+        },
+        {
+                "id": "7231789900",
+                "assigner_id": null,
+                "assignee_id": null,
+                "project_id": "2319679411",
+                "section_id": "134202313",
+                "parent_id": null,
+                "order": 1,
+                "content": "Review my day and plan ahead",
+                "description": "",
+                "is_completed": false,
+                "labels": [],
+                "priority": 2,
+                "comment_count": 0,
+                "creator_id": "45709149",
+                "created_at": "2023-09-15T14:38:14.885505Z",
+                "due": {
+                        "date": "2023-09-18",
+                        "timezone": "Etc/GMT+4",
+                        "string": "ev workday at 5pm",
+                        "lang": "en",
+                        "is_recurring": true,
+                        "datetime": "2023-09-18T21:00:00Z"
+                },
+                "url": "https://todoist.com/showTask?id=7231789900",
+                "duration": null
+        },
+        {
+                "id": "7231789906",
+                "assigner_id": null,
+                "assignee_id": null,
+                "project_id": "2319679411",
+                "section_id": "134202313",
+                "parent_id": null,
+                "order": 2,
+                "content": "Adapt my _work_ routines",
+                "description": "e.g.: perform daily shutdown routine, prepare weekly team meeting every Tuesday",
+                "is_completed": false,
+                "labels": [],
+                "priority": 1,
+                "comment_count": 0,
+                "creator_id": "45709149",
+                "created_at": "2023-09-15T14:38:15.060952Z",
+                "due": null,
+                "url": "https://todoist.com/showTask?id=7231789906",
+                "duration": null
+        },
+        {
+                "id": "7231789909",
+                "assigner_id": null,
+                "assignee_id": null,
+                "project_id": "2319679412",
+                "section_id": "134202315",
+                "parent_id": null,
+                "order": 1,
+                "content": "[7 Real-Life Todoist Setups to Steal](https://blog.doist.com/todoist-setup/?utm_source=todoist&utm_medium=in_app&utm_campaign=onboarding_project&utm_content=personal) 💡",
+                "description": "",
+                "is_completed": false,
+                "labels": [
+                        "read"
+                ],
+                "priority": 1,
+                "comment_count": 0,
+                "creator_id": "45709149",
+                "created_at": "2023-09-15T14:38:15.125423Z",
+                "due": null,
+                "url": "https://todoist.com/showTask?id=7231789909",
+                "duration": null
+        },
+        {
+                "id": "7231789916",
+                "assigner_id": null,
+                "assignee_id": null,
+                "project_id": "2319679412",
+                "section_id": "134202315",
+                "parent_id": null,
+                "order": 2,
+                "content": "[Organizing Your Family's To-do List with Todoist (Lessons From Users)](https://blog.doist.com/family-todo-list/?utm_source=todoist&utm_medium=in_app&utm_campaign=onboarding_project&utm_content=personal)",
+                "description": "",
+                "is_completed": false,
+                "labels": [
+                        "read"
+                ],
+                "priority": 1,
+                "comment_count": 0,
+                "creator_id": "45709149",
+                "created_at": "2023-09-15T14:38:15.279558Z",
+                "due": null,
+                "url": "https://todoist.com/showTask?id=7231789916",
+                "duration": null
+        },
+        {
+                "id": "7231789920",
+                "assigner_id": null,
+                "assignee_id": null,
+                "project_id": "2319679411",
+                "section_id": "134202317",
+                "parent_id": null,
+                "order": 1,
+                "content": "[Perform a workday shutdown routine](https://blog.doist.com/end-work-day/?utm_source=todoist&utm_medium=in_app&utm_campaign=onboarding_project&utm_content=work) 🌖",
+                "description": "",
+                "is_completed": false,
+                "labels": [
+                        "read"
+                ],
+                "priority": 1,
+                "comment_count": 0,
+                "creator_id": "45709149",
+                "created_at": "2023-09-15T14:38:15.336993Z",
+                "due": null,
+                "url": "https://todoist.com/showTask?id=7231789920",
+                "duration": null
+        },
+        {
+                "id": "7231789926",
+                "assigner_id": null,
+                "assignee_id": null,
+                "project_id": "2319679412",
+                "section_id": "134202315",
+                "parent_id": null,
+                "order": 3,
+                "content": "Explore Todoist's curated [personal templates](https://todoist.com/templates/category/personal?utm_source=todoist&utm_medium=in_app&utm_campaign=onboarding_project&utm_content=personal)",
+                "description": "",
+                "is_completed": false,
+                "labels": [],
+                "priority": 1,
+                "comment_count": 0,
+                "creator_id": "45709149",
+                "created_at": "2023-09-15T14:38:15.403461Z",
+                "due": null,
+                "url": "https://todoist.com/showTask?id=7231789926",
+                "duration": null
+        },
+        {
+                "id": "7231789932",
+                "assigner_id": null,
+                "assignee_id": null,
+                "project_id": "2319679411",
+                "section_id": "134202317",
+                "parent_id": null,
+                "order": 2,
+                "content": "[Todoist Integrations That Will Boost Your Productivity](https://blog.doist.com/todoist-integrations-productivity/?utm_source=todoist&utm_medium=in_app&utm_campaign=onboarding_project&utm_content=work)",
+                "description": "",
+                "is_completed": false,
+                "labels": [
+                        "read"
+                ],
+                "priority": 1,
+                "comment_count": 0,
+                "creator_id": "45709149",
+                "created_at": "2023-09-15T14:38:15.495212Z",
+                "due": null,
+                "url": "https://todoist.com/showTask?id=7231789932",
+                "duration": null
+        },
+        {
+                "id": "7231789942",
+                "assigner_id": null,
+                "assignee_id": null,
+                "project_id": "2319679411",
+                "section_id": "134202317",
+                "parent_id": null,
+                "order": 3,
+                "content": "Explore Todoist's curated [work templates](https://todoist.com/templates/category/work?utm_source=todoist&utm_medium=in_app&utm_campaign=onboarding_project&utm_content=work)",
+                "description": "",
+                "is_completed": false,
+                "labels": [],
+                "priority": 1,
+                "comment_count": 0,
+                "creator_id": "45709149",
+                "created_at": "2023-09-15T14:38:15.660193Z",
+                "due": null,
+                "url": "https://todoist.com/showTask?id=7231789942",
+                "duration": null
+        },
+        {
+                "id": "7231799458",
+                "assigner_id": null,
+                "assignee_id": null,
+                "project_id": "2319679387",
+                "section_id": null,
+                "parent_id": null,
+                "order": 1,
+                "content": "Learn the basics with the easy-to-follow [Getting Started Guide](https://todoist.com/getting-started?utm_source=todoist&utm_medium=in_app&utm_campaign=onboarding_project&utm_content=inbox) 🔗",
+                "description": "",
+                "is_completed": false,
+                "labels": [],
+                "priority": 4,
+                "comment_count": 0,
+                "creator_id": "45709149",
+                "created_at": "2023-09-15T14:41:27.497659Z",
+                "due": {
+                        "date": "2023-09-15",
+                        "string": "Sep 15",
+                        "lang": "en",
+                        "is_recurring": false
+                },
+                "url": "https://todoist.com/showTask?id=7231799458",
+                "duration": null
+        },
+        {
+                "id": "7231799469",
+                "assigner_id": null,
+                "assignee_id": null,
+                "project_id": "2319679387",
+                "section_id": null,
+                "parent_id": null,
+                "order": 2,
+                "content": "Take the [productivity method quiz](https://todoist.com/productivity-methods?utm_source=todoist&utm_medium=in_app&utm_campaign=onboarding_project&utm_content=inbox)",
+                "description": "Get a personalized recommendation from Todoist",
+                "is_completed": false,
+                "labels": [],
+                "priority": 3,
+                "comment_count": 0,
+                "creator_id": "45709149",
+                "created_at": "2023-09-15T14:41:27.683444Z",
+                "due": {
+                        "date": "2023-09-16",
+                        "string": "Sep 16",
+                        "lang": "en",
+                        "is_recurring": false
+                },
+                "url": "https://todoist.com/showTask?id=7231799469",
+                "duration": null
+        },
+        {
+                "id": "7231799479",
+                "assigner_id": null,
+                "assignee_id": null,
+                "project_id": "2319679387",
+                "section_id": null,
+                "parent_id": null,
+                "order": 3,
+                "content": "Download additional [free apps and plugins](https://todoist.com/help/articles/205383721?utm_source=todoist&utm_medium=in_app&utm_campaign=onboarding_project&utm_content=inbox) for 💻,⌚️,🖥 ,📱 and 📧",
+                "description": "",
+                "is_completed": false,
+                "labels": [],
+                "priority": 1,
+                "comment_count": 0,
+                "creator_id": "45709149",
+                "created_at": "2023-09-15T14:41:27.831414Z",
+                "due": {
+                        "date": "2023-09-18",
+                        "string": "Sep 18",
+                        "lang": "en",
+                        "is_recurring": false
+                },
+                "url": "https://todoist.com/showTask?id=7231799479",
+                "duration": null
+        }
+]
+
+------------Create new task------------
+
+C:\windows\system32>curl "https://api.todoist.com/rest/v2/tasks" -X POST -d "{""content"":""mb test task"", ""due_string"":""tomorrow at 12:00"", ""due_lang"":""en"", ""priority"":4}"  -H "Content-Type: application/json"  -H "X-Request-Id: $(uuidgen)" -H "Authorization: Bearer %token%"
+{
+        "id": "7238939450",
+        "assigner_id": null,
+        "assignee_id": null,
+        "project_id": "2319679387",
+        "section_id": null,
+        "parent_id": null,
+        "order": 5,
+        "content": "mb test task",
+        "description": "",
+        "is_completed": false,
+        "labels": [],
+        "priority": 4,
+        "comment_count": 0,
+        "creator_id": "45709149",
+        "created_at": "2023-09-18T13:38:45.808141Z",
+        "due": {
+                "date": "2023-09-19",
+                "string": "tomorrow at 12:00",
+                "lang": "en",
+                "is_recurring": false,
+                "datetime": "2023-09-19T12:00:00"
+        },
+        "url": "https://todoist.com/showTask?id=7238939450",
+        "duration": null
+}
+
+---------------GET activity task------------------
+C:\windows\system32>curl "https://api.todoist.com/rest/v2/tasks/7231799479"    -H "Authorization: Bearer %token%"
+{
+        "id": "7231799479",
+        "assigner_id": null,
+        "assignee_id": null,
+        "project_id": "2319679387",
+        "section_id": null,
+        "parent_id": null,
+        "order": 3,
+        "content": "Download additional [free apps and plugins](https://todoist.com/help/articles/205383721?utm_source=todoist&utm_medium=in_app&utm_campaign=onboarding_project&utm_content=inbox) for 💻,⌚️,🖥 ,📱 and 📧",
+        "description": "",
+        "is_completed": false,
+        "labels": [],
+        "priority": 1,
+        "comment_count": 0,
+        "creator_id": "45709149",
+        "created_at": "2023-09-15T14:41:27.831414Z",
+        "due": {
+                "date": "2023-09-18",
+                "string": "Sep 18",
+                "lang": "en",
+                "is_recurring": false
+        },
+        "url": "https://todoist.com/showTask?id=7231799479",
+        "duration": null
+}
+
+
+----------- Update task------------------
+C:\windows\system32>curl "https://api.todoist.com/rest/v2/tasks/7238939450" -X POST -d "{""content"":""mb test task edited""}"  -H "Content-Type: application/json"  -H "Authorization: Bearer %token%"
+{
+        "id": "7238939450",
+        "assigner_id": null,
+        "assignee_id": null,
+        "project_id": "2319679387",
+        "section_id": null,
+        "parent_id": null,
+        "order": 5,
+        "content": "mb test task edited",
+        "description": "",
+        "is_completed": false,
+        "labels": [],
+        "priority": 4,
+        "comment_count": 0,
+        "creator_id": "45709149",
+        "created_at": "2023-09-18T13:38:45.808141Z",
+        "due": {
+                "date": "2023-09-19",
+                "string": "tomorrow at 12:00",
+                "lang": "en",
+                "is_recurring": false,
+                "datetime": "2023-09-19T12:00:00"
+        },
+        "url": "https://todoist.com/showTask?id=7238939450",
+        "duration": null
+}
+
+
+-------------------Close task------------------
+
+C:\windows\system32>curl -X POST "https://api.todoist.com/rest/v2/tasks/7238939450/close"  -H "Authorization: Bearer %token%"
+
+C:\windows\system32>curl -v -X POST "https://api.todoist.com/rest/v2/tasks/7238939450/close"  -H "Authorization: Bearer %token%"
+*   Trying 108.158.104.61:443...
+* Connected to api.todoist.com (108.158.104.61) port 443 (#0)
+* schannel: disabled automatic use of client certificate
+* ALPN: offers http/1.1
+* ALPN: server accepted http/1.1
+* using HTTP/1.1
+> POST /rest/v2/tasks/7238939450/close HTTP/1.1
+> Host: api.todoist.com
+> User-Agent: curl/8.0.1
+> Accept: */*
+> Authorization: Bearer e6a4ab6ecc9c4c8c5d0bf75d3b84871f3eb7f2cd
+>
+< HTTP/1.1 204 No Content
+< Content-Type: text/html; charset=utf-8
+< Connection: keep-alive
+< Date: Mon, 18 Sep 2023 13:45:05 GMT
+< Access-Control-Allow-Credentials: false
+< Access-Control-Allow-Origin: *
+< Cache-Control: no-cache
+< Referrer-Policy: strict-origin-when-cross-origin
+< Server: gunicorn
+< Set-Cookie: csrf=077ebcd4e69143efb87af5e59ca5adc9; Expires=Thu, 15-Sep-2033 13:45:05 GMT; Secure; Path=/; SameSite=None
+< Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+< Vary: Accept-Encoding
+< X-Cache: Miss from cloudfront
+< Via: 1.1 61bf5cdcb798726dc6c606f907cc8f54.cloudfront.net (CloudFront)
+< X-Amz-Cf-Pop: LIM50-P1
+< X-Amz-Cf-Id: ya92zkERLkstWKbyNChwkNDZx4TYtH3q0O3UN2ZyfbYh_x0OazpuiQ==
+<
+* Connection #0 to host api.todoist.com left intact
+
+-----------------Delete task------------------------
+
+
+C:\windows\system32>curl  -v -X DELETE "https://api.todoist.com/rest/v2/tasks/7238939450"     -H "Authorization: Bearer %token%"
+*   Trying 108.158.104.37:443...
+* Connected to api.todoist.com (108.158.104.37) port 443 (#0)
+* schannel: disabled automatic use of client certificate
+* ALPN: offers http/1.1
+* ALPN: server accepted http/1.1
+* using HTTP/1.1
+> DELETE /rest/v2/tasks/7238939450 HTTP/1.1
+> Host: api.todoist.com
+> User-Agent: curl/8.0.1
+> Accept: */*
+> Authorization: Bearer e6a4ab6ecc9c4c8c5d0bf75d3b84871f3eb7f2cd
+>
+< HTTP/1.1 204 No Content
+< Content-Type: text/html; charset=utf-8
+< Connection: keep-alive
+< Date: Mon, 18 Sep 2023 13:46:46 GMT
+< Access-Control-Allow-Credentials: false
+< Access-Control-Allow-Origin: *
+< Cache-Control: no-cache
+< Referrer-Policy: strict-origin-when-cross-origin
+< Server: gunicorn
+< Set-Cookie: csrf=7c9a09e8e6ab47c89e5727a1f7a0e511; Expires=Thu, 15-Sep-2033 13:46:46 GMT; Secure; Path=/; SameSite=None
+< Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+< Vary: Accept-Encoding
+< X-Cache: Miss from cloudfront
+< Via: 1.1 0b63381bca90b6d116f0766778be6bb2.cloudfront.net (CloudFront)
+< X-Amz-Cf-Pop: LIM50-P1
+< X-Amz-Cf-Id: EQnADOnKQ9BuBGrEmkyIaitCBU8MSyjrA6rM1QNj50EN_yxf5k38vg==
+<
+* Connection #0 to host api.todoist.com left intact
+
+
+----------------------Invalid  value in task content---------------------
+
+
+C:\windows\system32>curl -v  "https://api.todoist.com/rest/v2/tasks/7238939450" -X POST -d "{""content"":}"  -H "Content-Type: application/json"  -H "Authorization: Bearer %token%"
+Note: Unnecessary use of -X or --request, POST is already inferred.
+*   Trying 108.158.104.115:443...
+* Connected to api.todoist.com (108.158.104.115) port 443 (#0)
+* schannel: disabled automatic use of client certificate
+* ALPN: offers http/1.1
+* ALPN: server accepted http/1.1
+* using HTTP/1.1
+> POST /rest/v2/tasks/7238939450 HTTP/1.1
+> Host: api.todoist.com
+> User-Agent: curl/8.0.1
+> Accept: */*
+> Content-Type: application/json
+> Authorization: Bearer e6a4ab6ecc9c4c8c5d0bf75d3b84871f3eb7f2cd
+> Content-Length: 12
+>
+< HTTP/1.1 400 Bad Request
+< Content-Type: text/html; charset=utf-8
+< Content-Length: 2168
+< Connection: keep-alive
+< Date: Mon, 18 Sep 2023 14:00:07 GMT
+< Access-Control-Allow-Credentials: false
+< Access-Control-Allow-Origin: *
+< Cache-Control: no-cache
+< Referrer-Policy: strict-origin-when-cross-origin
+< Server: gunicorn
+< Set-Cookie: csrf=38df6ad1edaf40a0a0fdf6f83531532f; Expires=Thu, 15-Sep-2033 14:00:07 GMT; Secure; Path=/; SameSite=None
+< Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+< Vary: Accept-Encoding
+< X-Cache: Error from cloudfront
+< Via: 1.1 3601b3583b8fa2c1ff5a4060892d24b2.cloudfront.net (CloudFront)
+< X-Amz-Cf-Pop: LIM50-P1
+< X-Amz-Cf-Id: canCjsiFAKMC9zoOSGMnw8i5wY3HQnWHBJJFnTqDdyMj3l7kgas-pA==
+<
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>500 - Sorry, something went wrong</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+    <style type="text/css">
+    body{
+        text-align:center;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        font-size:small;
+        color:#555;
+        line-height: 20px;
+    }
+
+    h3 {
+        font-size: 25px;
+        line-height: 30px;
+        font-weight: normal;
+    }
+
+    a {
+        color: #db4c3f;
+        text-decoration: none;
+    }
+
+    p {
+        font-size:14px;
+        margin:8px 0 0;
+    }
+
+    #container{
+        margin:53px auto;
+        max-width:400px;
+        text-align:left;
+        padding: 20px;
+        background:#fff;
+    }
+
+    .logo {
+        margin-bottom: 60px;
+        margin-top: 0;
+    }
+
+    .button {
+      border: 0;
+      border-radius: 3px;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      line-height: 1.2;
+      padding: 10px 15px;
+      color: white;
+      cursor: pointer;
+      background-color: #db4c3f;
+      display: inline-block;
+      margin-bottom: 10px;
+    }
+
+    .buttons {
+      margin-top: 50px;
+      text-align: center;
+    }
+    </style>
+
+</head>
+
+<body>
+
+<body>
+
+
+
+
+<div id="container">
+    <p class="logo">
+        <a href="https://todoist.com/">
+            <img src="https://d3ptyyxy2at9ui.cloudfront.net/logo-todoist-b5b89f.svg" height="35" />
+        </a>
+    </p>
+
+        <h3>Sorry, something went wrong</h3>
+
+        <p>
+
+
+            If you reached this page from another part of <a href="https://todoist.com/">todoist.com</a>,
+            please <a href="https://get.todoist.help/">let us know</a> so we can correct our mistake.
+        </p>
+            <p>Error ID: b19f9bd5a0b2429ab8f44248841c0140</p>
+</div>
+
+</body>
+
+</body>
+</html>
+* Connection #0 to host api.todoist.com left intact
+
+
+-------------------------------------Non existing task to close-------------------------
+C:\windows\system32>curl -v -X POST "https://api.todoist.com/rest/v2/tasks/72389394501111/close"  -H "Authorization: Bearer %token%"
+*   Trying 108.158.104.115:443...
+* Connected to api.todoist.com (108.158.104.115) port 443 (#0)
+* schannel: disabled automatic use of client certificate
+* ALPN: offers http/1.1
+* ALPN: server accepted http/1.1
+* using HTTP/1.1
+> POST /rest/v2/tasks/72389394501111/close HTTP/1.1
+> Host: api.todoist.com
+> User-Agent: curl/8.0.1
+> Accept: */*
+> Authorization: Bearer e6a4ab6ecc9c4c8c5d0bf75d3b84871f3eb7f2cd
+>
+< HTTP/1.1 404 Not Found
+< Content-Type: text/plain; charset=utf-8
+< Content-Length: 14
+< Connection: keep-alive
+< Date: Mon, 18 Sep 2023 14:01:26 GMT
+< Access-Control-Allow-Credentials: false
+< Access-Control-Allow-Origin: *
+< Cache-Control: no-cache
+< Referrer-Policy: strict-origin-when-cross-origin
+< Server: gunicorn
+< Set-Cookie: csrf=54426687b4d6459193eda3f2c804836a; Expires=Thu, 15-Sep-2033 14:01:26 GMT; Secure; Path=/; SameSite=None
+< Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+< Vary: Accept-Encoding
+< X-Cache: Error from cloudfront
+< Via: 1.1 672a274f5830cff711168a1debfae76c.cloudfront.net (CloudFront)
+< X-Amz-Cf-Pop: LIM50-P1
+< X-Amz-Cf-Id: n-IDbPf40RhgLHruTXaIpxG0i2sIK_3XfxC-T-bLcnsBa4Bzm39jhA==
+<
+Task not found* Connection #0 to host api.todoist.com left intact
+
+-----------------------Delete non existing task--------------------------
+C:\windows\system32>curl  -v -X DELETE "https://api.todoist.com/rest/v2/tasks/7238939455522222222222222222"     -H "Authorization: Bearer %token%"
+*   Trying 108.158.104.14:443...
+* Connected to api.todoist.com (108.158.104.14) port 443 (#0)
+* schannel: disabled automatic use of client certificate
+* ALPN: offers http/1.1
+* ALPN: server accepted http/1.1
+* using HTTP/1.1
+> DELETE /rest/v2/tasks/7238939455522222222222222222 HTTP/1.1
+> Host: api.todoist.com
+> User-Agent: curl/8.0.1
+> Accept: */*
+> Authorization: Bearer e6a4ab6ecc9c4c8c5d0bf75d3b84871f3eb7f2cd
+>
+< HTTP/1.1 204 No Content
+< Content-Type: text/html; charset=utf-8
+< Connection: keep-alive
+< Date: Mon, 18 Sep 2023 14:08:27 GMT
+< Access-Control-Allow-Credentials: false
+< Access-Control-Allow-Origin: *
+< Cache-Control: no-cache
+< Referrer-Policy: strict-origin-when-cross-origin
+< Server: gunicorn
+< Set-Cookie: csrf=5b99699bc5e24fe9917e2142eae77720; Expires=Thu, 15-Sep-2033 14:08:27 GMT; Secure; Path=/; SameSite=None
+< Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+< Vary: Accept-Encoding
+< X-Cache: Miss from cloudfront
+< Via: 1.1 c3f52c6e51c79b76b85ae5ed7c2503a6.cloudfront.net (CloudFront)
+< X-Amz-Cf-Pop: LIM50-P1
+< X-Amz-Cf-Id: S6o-Cr8deQRh7FAAnkNF-ow9loBOhRsq1u8GMEnKnzpMuNBuCEL7wA==
+<
+* Connection #0 to host api.todoist.com left intact
+
+
+---------------------------Invalid data sent in edit call same response for create task call----------------------------
+
+
+C:\windows\system32>curl -v  "https://api.todoist.com/rest/v2/tasks/7238939450" -X POST -d "{""content"":"mb test task edited"}"  -H "Content-Type: application/json"  -H "Authorization: Bearer %token%"
+Note: Unnecessary use of -X or --request, POST is already inferred.
+*   Trying 108.158.104.37:443...
+* Connected to api.todoist.com (108.158.104.37) port 443 (#0)
+* schannel: disabled automatic use of client certificate
+* ALPN: offers http/1.1
+* ALPN: server accepted http/1.1
+* using HTTP/1.1
+> POST /rest/v2/tasks/7238939450 HTTP/1.1
+> Host: api.todoist.com
+> User-Agent: curl/8.0.1
+> Accept: */*
+> Content-Type: application/json
+> Authorization: Bearer e6a4ab6ecc9c4c8c5d0bf75d3b84871f3eb7f2cd
+> Content-Length: 13
+>
+< HTTP/1.1 400 Bad Request
+< Content-Type: text/html; charset=utf-8
+< Content-Length: 2168
+< Connection: keep-alive
+< Date: Mon, 18 Sep 2023 14:09:48 GMT
+< Access-Control-Allow-Credentials: false
+< Access-Control-Allow-Origin: *
+< Cache-Control: no-cache
+< Referrer-Policy: strict-origin-when-cross-origin
+< Server: gunicorn
+< Set-Cookie: csrf=62ddc99065ff409f95016d7dac200a09; Expires=Thu, 15-Sep-2033 14:09:48 GMT; Secure; Path=/; SameSite=None
+< Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+< Vary: Accept-Encoding
+< X-Cache: Error from cloudfront
+< Via: 1.1 1b60cf6445dea0db327d48d27419e066.cloudfront.net (CloudFront)
+< X-Amz-Cf-Pop: LIM50-P1
+< X-Amz-Cf-Id: w1l9jwcR07CfTFJHfr8votyQ15UOCIGKTvci7QO7Yj8e4SvlYJBkYw==
+<
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>500 - Sorry, something went wrong</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+    <style type="text/css">
+    body{
+        text-align:center;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        font-size:small;
+        color:#555;
+        line-height: 20px;
+    }
+
+    h3 {
+        font-size: 25px;
+        line-height: 30px;
+        font-weight: normal;
+    }
+
+    a {
+        color: #db4c3f;
+        text-decoration: none;
+    }
+
+    p {
+        font-size:14px;
+        margin:8px 0 0;
+    }
+
+    #container{
+        margin:53px auto;
+        max-width:400px;
+        text-align:left;
+        padding: 20px;
+        background:#fff;
+    }
+
+    .logo {
+        margin-bottom: 60px;
+        margin-top: 0;
+    }
+
+    .button {
+      border: 0;
+      border-radius: 3px;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      line-height: 1.2;
+      padding: 10px 15px;
+      color: white;
+      cursor: pointer;
+      background-color: #db4c3f;
+      display: inline-block;
+      margin-bottom: 10px;
+    }
+
+    .buttons {
+      margin-top: 50px;
+      text-align: center;
+    }
+    </style>
+
+</head>
+
+<body>
+
+<body>
+
+
+
+
+<div id="container">
+    <p class="logo">
+        <a href="https://todoist.com/">
+            <img src="https://d3ptyyxy2at9ui.cloudfront.net/logo-todoist-b5b89f.svg" height="35" />
+        </a>
+    </p>
+
+        <h3>Sorry, something went wrong</h3>
+
+        <p>
+
+
+            If you reached this page from another part of <a href="https://todoist.com/">todoist.com</a>,
+            please <a href="https://get.todoist.help/">let us know</a> so we can correct our mistake.
+        </p>
+            <p>Error ID: 430c24c8eef8412ca96cea0f969a6118</p>
+</div>
+
+</body>
+
+</body>
+</html>
+* Connection #0 to host api.todoist.com left intact
+Note: Unnecessary use of -X or --request, POST is already inferred.
+* Could not resolve host: test
+* Closing connection 1
+curl: (6) Could not resolve host: test
+Note: Unnecessary use of -X or --request, POST is already inferred.
+* Could not resolve host: task
+* Closing connection 2
+curl: (6) Could not resolve host: task
+curl: (3) unmatched close brace/bracket in URL position 7:
+edited}
