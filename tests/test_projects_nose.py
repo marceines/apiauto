@@ -1,6 +1,5 @@
 import unittest
 import requests
-import pytest
 from nose2.tools import params
 
 """
@@ -32,6 +31,7 @@ class Projects(unittest.TestCase):
         cls.project_id_update = ""
         cls.projects_list = []
 
+
     def test_get_all_projects(self):
         """
         Test get all projects
@@ -39,12 +39,12 @@ class Projects(unittest.TestCase):
         response = requests.get(self.url_base, headers=self.headers)
         assert response.status_code == 200
 
-
-    @params("Project 2", "proy3", "proy4")
+    @params("Marce 2", "proj 3", "!proj 4")
     def test_create_project(self, name_project):
         """
         Test for create project
         """
+        self.name_project = []
         body_project = {
             "name": name_project
         }

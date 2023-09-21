@@ -1,7 +1,6 @@
-import unittest
 import requests
 import pytest
-from nose2.tools import params
+
 
 class TestProjects:
     def setup_class(self):
@@ -45,6 +44,7 @@ class TestProjects:
 
     @pytest.mark.smoke
     def test_get_project(self, test_get_all_projects):
+
         url = self.url_base + "/" + test_get_all_projects
         response = requests.get(url, headers=self.headers)
         print(response.json())
@@ -70,4 +70,4 @@ class TestProjects:
 
     @classmethod
     def teardown_class(cls):
-        print("teardown")
+         print("teardown")
