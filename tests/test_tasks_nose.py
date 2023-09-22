@@ -62,7 +62,7 @@ class Tasks(unittest.TestCase):
 
     def test_get_task(self):
         """
-        Test get tasks
+        Test get task
         """
         url = f"{self.url_base}/{self.task_id}"
         response = requests.get(url, headers=self.headers)
