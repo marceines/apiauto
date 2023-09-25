@@ -9,6 +9,8 @@ from config.config import TOKEN_TODO
 
 class Projects(unittest.TestCase):
     """Second version of Projects class."""
+
+
     @classmethod
     def setUpClass(cls):
         """
@@ -32,6 +34,7 @@ class Projects(unittest.TestCase):
         cls.project_id = response.json()["id"]
         cls.project_id_update = ""
         cls.projects_list = []
+        cls.name_project = " "
 
 
     def test_get_all_projects(self):
