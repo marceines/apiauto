@@ -1,15 +1,11 @@
-import logging
 import unittest
 import requests
 from nose2.tools import params
-
 from config.config import TOKEN_TODO
-from utils.logger import get_logger
 
 """
 Test for nose2
 """
-LOGGER = get_logger(__name__, logging.INFO)
 
 
 class Projects(unittest.TestCase):
@@ -20,9 +16,10 @@ class Projects(unittest.TestCase):
         Setup Class only executed one time
         """
         print("Setup Class")
-        cls.token = TOKEN_TODO
+        cls.token = "e93af8cd65052e8e1703015de2d02e89f006b3e0"
+        cls.token2 = TOKEN_TODO
 
-        print("Token from .env file: ", cls.token)
+        print("Token from .env file: ", cls.token2)
         cls.headers = {
             "Authorization": "Bearer {}".format(cls.token)
         }
@@ -38,6 +35,7 @@ class Projects(unittest.TestCase):
         cls.project_id_update = ""
         cls.projects_list = []
 
+
     def test_get_all_projects(self):
         """
         Test get all projects
@@ -45,18 +43,18 @@ class Projects(unittest.TestCase):
         response = requests.get(self.url_base, headers=self.headers)
         assert response.status_code == 200
 
-    @params("Project 2", "1111111", "!@$$@$!@$")
+    @params("Marce 2", "proj 3", "!proj 4")
     def test_create_project(self, name_project):
         """
         Test for create project
         """
+        self.name_project = []
         body_project = {
             "name": name_project
         }
         response = requests.post(self.url_base, headers=self.headers, data=body_project)
-        LOGGER.info("Response for create project: %s", response.json())
+        print(response.json())
         self.project_id_update = response.json()["id"]
-        LOGGER.debug("Project id generated: %s", self.project_id_update)
         self.projects_list.append(self.project_id_update)
         assert response.status_code == 200
 
@@ -93,4 +91,4 @@ class Projects(unittest.TestCase):
         for project in cls.projects_list:
             url = f"{cls.url_base}/{project}"
             requests.delete(url, headers=cls.headers)
-            LOGGER.info(f"Deleting project: {project}")
+            print(f"Deleting project: {project}")

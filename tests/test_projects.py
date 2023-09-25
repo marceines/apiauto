@@ -1,58 +1,83 @@
+import logging
+import unittest
 import requests
-import pytest
+from nose2.tools import params
+
+from config.config import TOKEN_TODO
+from utils.logger import get_logger
+
+"""
+Test for nose2
+"""
+LOGGER = get_logger(__name__, logging.INFO)
 
 
-class TestProjects:
-    def setup_class(self):
-        print("Setup class")
-        # arrange of test
-        self.token = "e6a4ab6ecc9c4c8c5d0bf75d3b84871f3eb7f2cd"
-        self.headers = {
-            "Authorization": "Bearer {}".format(self.token)
+class Projects(unittest.TestCase):
+
+    @classmethod
+    def setUpClass(cls):
+        """
+        Setup Class only executed one time
+        """
+        print("Setup Class")
+        cls.token = TOKEN_TODO
+
+        print("Token from .env file: ", cls.token)
+        cls.headers = {
+            "Authorization": "Bearer {}".format(cls.token)
         }
-        self.url_base = "https://api.todoist.com/rest/v2/projects"
+        cls.url_base = "https://api.todoist.com/rest/v2/projects"
 
-    @pytest.fixture
+        # create project to be used in tests
+        body_project = {
+            "name": "Project 0"
+        }
+        response = requests.post(cls.url_base, headers=cls.headers, data=body_project)
+
+        cls.project_id = response.json()["id"]
+        cls.project_id_update = ""
+        cls.projects_list = []
+
     def test_get_all_projects(self):
         """
-        test for get all projects
-        :return:
+        Test get all projects
         """
-        # act
         response = requests.get(self.url_base, headers=self.headers)
-        print(response.json())
-        list_projects = response.json()
-        id_project = list_projects[1]["id"]
-        # assert
         assert response.status_code == 200
-        return id_project
 
-    @pytest.mark.smoke
-    @pytest.mark.create
-    @pytest.mark.parametrize("name", ["Project 2", "Project3", "Project 4"])
-    def test_create_project(self, name):
+    @params("Project 2", "1111111", "!@$$@$!@$")
+    def test_create_project(self, name_project):
         """
-        test to verify creation of project
-        :return:
+        Test for create project
         """
         body_project = {
-            "name": name
+            "name": name_project
         }
         response = requests.post(self.url_base, headers=self.headers, data=body_project)
-        print(response.json())
+        LOGGER.info("Response for create project: %s", response.json())
+        self.project_id_update = response.json()["id"]
+        LOGGER.debug("Project id generated: %s", self.project_id_update)
+        self.projects_list.append(self.project_id_update)
         assert response.status_code == 200
 
-    @pytest.mark.smoke
-    def test_get_project(self, test_get_all_projects):
-
-        url = self.url_base + "/" + test_get_all_projects
+    def test_get_project(self):
+        """
+        Test get Project
+        """
+        url = f"{self.url_base}/{self.project_id}"
         response = requests.get(url, headers=self.headers)
         print(response.json())
         assert response.status_code == 200
 
-    @pytest.mark.update
-    def test_update_project(self, test_get_all_projects):
-        url = self.url_base + "/" + test_get_all_projects
+    def test_delete_project(self):
+        url = f"{self.url_base}/{self.project_id}"
+        print(f"Test Delete: {self.project_id}")
+        response = requests.delete(url, headers=self.headers)
+        # validate project has been deleted
+        assert response.status_code == 204
+
+    def test_update_project(self):
+        url = f"{self.url_base}/{self.project_id_update}"
         data_update = {
             "name": "Project 2",
             "color": "red"
@@ -61,13 +86,11 @@ class TestProjects:
         print(response.json())
         assert response.status_code == 200
 
-    @pytest.mark.smoke
-    def test_delete_project(self, test_get_all_projects):
-        url = self.url_base + "/" + test_get_all_projects
-        response = requests.delete(url, headers=self.headers)
-        # print(response.json())
-        assert response.status_code == 204
-
     @classmethod
-    def teardown_class(cls):
-         print("teardown")
+    def tearDownClass(cls):
+        print("tearDown Class")
+        # delete projects created
+        for project in cls.projects_list:
+            url = f"{cls.url_base}/{project}"
+            requests.delete(url, headers=cls.headers)
+            LOGGER.info(f"Deleting project: {project}")

@@ -1,6 +1,7 @@
 import unittest
 import requests
 from nose2.tools import params
+from config.config import TOKEN_TODO
 
 """
 Test for nose2
@@ -15,7 +16,7 @@ class Projects(unittest.TestCase):
         Setup Class only executed one time
         """
         print("Setup Class")
-        cls.token = "e6a4ab6ecc9c4c8c5d0bf75d3b84871f3eb7f2cd"
+        cls.token = "e93af8cd65052e8e1703015de2d02e89f006b3e0"
         cls.headers = {
             "Authorization": "Bearer {}".format(cls.token)
         }
