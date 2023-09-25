@@ -1,34 +1,25 @@
-# pylint: disable=missing-module-docstring
-# pylint: disable=missing-class-docstring
-# pylint: disable=missing-function-docstring
-# pylint: disable=invalid-name
-# pylint: disable=trailing-newlines
-# pylint: disable=trailing-whitespace
-# pylint: disable=missing-final-newline
+"""Module to test projects."""
 import unittest
 import requests
 from nose2.tools import params
-from config.config import (TOKEN_TODO)
+from config.config import TOKEN_TODO
 
-"""
-Test for nose2
-"""
+
 
 
 class Projects(unittest.TestCase):
-
+    """Second version of Projects class."""
     @classmethod
     def setUpClass(cls):
         """
         Setup Class only executed one time
         """
         print("Setup Class")
-        cls.token = "e93af8cd65052e8e1703015de2d02e89f006b3e0"
-        cls.token2 = TOKEN_TODO
-
-        print("Token from .env file: ", cls.token2)
+        cls.token = TOKEN_TODO
+        # pylint: disable=consider-using-f-string
+        print("Token from .env file: ", TOKEN_TODO)
         cls.headers = {
-            "Authorization": "Bearer {}".format(cls.token)
+            "Authorization" : "Bearer {}".format(cls.token)
         }
         cls.url_base = "https://api.todoist.com/rest/v2/projects"
 
@@ -75,6 +66,7 @@ class Projects(unittest.TestCase):
         assert response.status_code == 200
 
     def test_delete_project(self):
+        """Function delete project."""
         url = f"{self.url_base}/{self.project_id}"
         print(f"Test Delete: {self.project_id}")
         response = requests.delete(url, headers=self.headers, timeout=10)
@@ -82,6 +74,7 @@ class Projects(unittest.TestCase):
         assert response.status_code == 204
 
     def test_update_project(self):
+        """Function update project."""
         url = f"{self.url_base}/{self.project_id_update}"
         data_update = {
             "name": "Project 2",
