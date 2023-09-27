@@ -22,7 +22,7 @@ class RestClient(metaclass=Singleton):
 
     def send_request(
 
-            self, method_name, session=None, url="",  headers=None, data=None,
+            self, method_name, session=None, url="",  headers_req=None, data=None,
     ):
         """
         Method to send request parameters
@@ -39,11 +39,11 @@ class RestClient(metaclass=Singleton):
         LOGGER.info("Endpoint (URL): %s", url)
 
         try:
-            response = methods[method_name](url, headers=headers, data=data)
+            response = methods[method_name](url, headers=headers_req, data=data)
             response.raise_for_status()
             LOGGER.info("Status code: %s", response.status_code)
             if hasattr(response, "request"):
-                LOGGER.debug("Request: %s", response.request.headers)
+                LOGGER.debug("Request: %s", response.request.headers_req)
             LOGGER.info("Response: %s", response.text)
 
         except requests.exceptions.HTTPError as http_error:
@@ -53,41 +53,41 @@ class RestClient(metaclass=Singleton):
 
         return response
 
-    def get(self, session, url_base, headers):
+    def get(self, session, url_base, headers_req):
         """
 
         :param url_base:
         :param headers:
         :return:
         """
-        return self.send_request("get", session, url_base, headers=headers)
+        return self.send_request("get", session, url_base, headers_req=headers_req)
 
-    def post(self, session, url_base, headers, data):
+    def post(self, session, url_base, headers_req, data):
         """
 
         :param url_base:
         :param headers:
         :return:
         """
-        return self.send_request("post", session, url_base, headers, data=data)
+        return self.send_request("post", session, url_base, headers_req, data=data)
 
-    def delete(self, session, url_base, headers):
+    def delete(self, session, url_base, headers_req):
         """
 
         :param url_base:
         :param headers:
         :return:
         """
-        return self.send_request("delete", session, url_base, headers)
+        return self.send_request("delete", session, url_base, headers_req)
 
 
 if __name__ == '__main__':
 
     token = TOKEN_TODO
     print(token)
-    headers = {
+    headers_url = {
         "Authorization": f"Bearer {token}"
     }
     RestClient().send_request("get", session=requests.Session(),
                              url="https://api.todoist.com/rest/v2/projects",
-                             headers=headers)
+                             headers=headers_url)
