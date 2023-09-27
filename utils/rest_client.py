@@ -21,6 +21,9 @@ class RestClient(metaclass=Singleton):
     """
 
     def send_request(self, method_name, session=None, url="", headers="", data=None):
+        """
+        Method to send request
+        """
         methods = {
             "get": session.get,
             "post": session.post,
