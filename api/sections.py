@@ -3,8 +3,8 @@ import unittest
 
 import requests
 
-from api.todo_base import TodoBase
 from api.validate_response import ValidateResponse
+from api.todo_base import TodoBase
 from config.config import HEADERS
 from utils.logger import get_logger
 from utils.rest_client import RestClient
@@ -17,13 +17,10 @@ class Sections(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.url_section = "https://api.todoist.com/rest/v2/sections"
-        cls.url_projects= "https://api.todoist.com/rest/v2/projects"
+        cls.url_projects = "https://api.todoist.com/rest/v2/sections"
         cls.session = requests.Session()
         cls.todo = TodoBase()
         cls.projects_list = []
-        cls.section_list = []
-
-
 
     def test_create_session(self):
         """
@@ -42,27 +39,26 @@ class Sections(unittest.TestCase):
         ValidateResponse().validate_response(actual_response=response, method="get", expected_status_code=200,
                                              feature="section")
         self.projects_list.append(project_id)
-
-
     def test_get_all_sections(self):
         """
-        Test get all projects
+        Test get all sections
         """
         response = RestClient().send_request("get", session=self.session, url=self.url_section,
                                              headers=HEADERS)
         ValidateResponse().validate_response(actual_response=response, method="get", expected_status_code=200,
                                             feature="sections")
 
-    def test_get_all_sections_by_project(self):
-        url_sections = ""
-        response = self.todo.get_all_projects()
-        project_id = response["body"][0]["id"]
-        if project_id:
-            url_sections = f"{self.url_section}?project_id={project_id}"
 
-        response = RestClient().send_request("get", session=self.session, url=url_sections,
-                                             headers=HEADERS)
-        self.projects_list.append(project_id)
+    def test_get_all_sections_by_project(self):
+        all_projects = self.todo.get_all_projects()
+        project_id = all_projects["body"][0]["id"]
+        if project_id:
+            url_section = f"{self.url_section}?project_id={project_id}"
+
+        response = RestClient().send_request("get", session=self.session, headers=HEADERS,
+                                             url=url_section)
+        LOGGER.info("Number of sections returned: %s", len(response["body"]))
+
 
     def test_get_section(self):
         response = self.todo.get_all_sections()
@@ -71,6 +67,7 @@ class Sections(unittest.TestCase):
         url_section = f"{self.url_section}/{section_id}"
         response = RestClient().send_request("get", session=self.session, headers=HEADERS,
                                              url=url_section)
+
 
     def test_update_section(self):
         data = {
@@ -82,15 +79,21 @@ class Sections(unittest.TestCase):
         url_section = f"{self.url_section}/{section_id}"
         response = RestClient().send_request("post", session=self.session, headers=HEADERS,
                                              url=url_section, data=data)
+
     def test_delete_section(self):
 
-        response = self.todo.get_all_sections()
-        section_id = response["body"][0]["id"]
-        LOGGER.info("Section Id to delete : %s", section_id)
+        project_created_to_sections = self.todo.create_project("Project for section")
+        project_id = project_created_to_sections["body"]["id"]
+        body_section = {
+            "project_id": project_id,
+            "name": "Section created by MB"
+        }
+        response = RestClient().send_request("post", session=self.session, url=self.url_section,
+                                             headers=HEADERS, data=body_section)
+        section_id = response["body"]["id"]
         url_section = f"{self.url_section}/{section_id}"
         response = RestClient().send_request("delete", session=self.session, headers=HEADERS,
                                              url=url_section)
-
 
 
     @classmethod
