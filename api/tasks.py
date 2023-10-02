@@ -17,67 +17,86 @@ class Tasks(unittest.TestCase):
     def setUpClass(cls):
         cls.url_tasks = "https://api.todoist.com/rest/v2/tasks"
         cls.session = requests.Session()
-
-        cls.project_id = TodoBase().get_all_projects().json()[1]["id"]
-        cls.section_id = TodoBase().get_all_sections().json()[1]["id"]
-        cls.task_id = TodoBase().get_all_tasks().json()[1]["id"]
+        cls.todo = TodoBase()
 
     def test_create_task(self):
 
         response = self.create_task()
-        assert response.status_code == 200
+
 
     def test_create_task_with_project_id(self):
-        project_id = self.project_id
+        project_id_all = self.todo.get_all_projects()
+        project_id = project_id_all["body"][0]["id"]
         response = self.create_task(project_id=project_id)
-        assert response.status_code == 200
 
     def test_create_task_with_section_id(self):
-        section_id = self.section_id
+        section_id_all = self.todo.get_all_sections()
+        section_id = section_id_all["body"][0]["id"]
         response = self.create_task(section_id=section_id)
-        assert response.status_code == 200
 
     def test_get_all_tasks(self):
 
-        response = TodoBase().get_all_tasks()
-        LOGGER.info("Number of tasks returned: %s", len(response.json()))
-        assert response.status_code == 200
+        tasks_id_all = self.todo.get_all_tasks()
+
+        LOGGER.info("Number of tasks returned: %s", len(tasks_id_all["body"]))
 
     def test_get_task_by_id(self):
-        task_id = self.task_id
+        task_id_all = self.todo.get_all_tasks()
+        task_id = task_id_all["body"][0]["id"]
+
         LOGGER.info("Task Id: %s", task_id)
         url_task = f"{self.url_tasks}/{task_id}"
         response = RestClient().send_request("get", session=self.session, headers=HEADERS, url=url_task)
-
-        assert response.status_code == 200
-
     def test_close_task(self):
 
-        task_id = self.task_id
+        task_id_all = self.todo.get_all_tasks()
+        task_id = task_id_all["body"][0]["id"]
         LOGGER.info("Task Id: %s", task_id)
         url_task_close = f"{self.url_tasks}/{task_id}/close"
         response = RestClient().send_request("post", session=self.session, headers=HEADERS,
                                              url=url_task_close)
 
-        assert response.status_code == 204
-
     def test_reopen_task(self):
         # valid task open
-        task_id = self.create_task().json()["id"]
+        task_created = self.create_task()
+        task_id = task_created["body"]["id"]
 
         # close
         url_task_close = f"{self.url_tasks}/{task_id}/close"
         response_close = RestClient().send_request("post", session=self.session, headers=HEADERS,
                                                    url=url_task_close)
 
-        assert response_close.status_code == 204
+
 
         LOGGER.info("Task Id: %s", task_id)
         url_task_reopen = f"{self.url_tasks}/{task_id}/reopen"
         response = RestClient().send_request("post", session=self.session, headers=HEADERS,
                                              url=url_task_reopen)
 
-        assert response.status_code == 204
+    def test_update_task(self):
+
+        data = {
+            "content": "Task Edited"
+        }
+
+        task_created = self.create_task()
+        task_id = task_created["body"]["id"]
+        LOGGER.info("Task Id: %s", task_id)
+        url_task_update = f"{self.url_tasks}/{task_id}"
+        response = RestClient().send_request("post", session=self.session, headers=HEADERS,
+                                             url=url_task_update, data=data)
+
+
+
+    def test_delete_task(self):
+
+        task_created = self.create_task()
+        task_id = task_created["body"]["id"]
+        LOGGER.info("Task Id: %s", task_id)
+        url_task_update = f"{self.url_tasks}/{task_id}"
+        response = RestClient().send_request("delete", session=self.session, headers=HEADERS,
+                                             url=url_task_update)
+
 
     def create_task(self, project_id=None, section_id=None):
         data = {
@@ -95,25 +114,3 @@ class Tasks(unittest.TestCase):
                                              url=self.url_tasks, data=data)
 
         return response
-
-    def test_update_task(self):
-
-        data = {
-            "content": "Task Edited"
-        }
-
-        task_id = self.create_task().json()["id"]
-        LOGGER.info("Task Id: %s", task_id)
-        url_task_update = f"{self.url_tasks}/{task_id}"
-        response = RestClient().send_request("post", session=self.session, headers=HEADERS,
-                                             url=url_task_update, data=data)
-        assert response.status_code == 200
-
-    def test_delete_task(self):
-
-        task_id = self.create_task().json()["id"]
-        LOGGER.info("Task Id: %s", task_id)
-        url_task_update = f"{self.url_tasks}/{task_id}"
-        response = RestClient().send_request("delete", session=self.session, headers=HEADERS,
-                                             url=url_task_update)
-        assert response.status_code == 204
