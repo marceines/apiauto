@@ -1,0 +1,21 @@
+{
+  "request": {
+    "method": "POST",
+    "url": "/sections",
+    "body": {
+      "name": "Section created by MB"
+    }
+  },
+"response": {
+    "body": {
+	"id": "135831231",
+	"project_id": "2321273621",
+	"order": 1,
+	"name": "Section created by MB"
+},
+    "headers": {
+      "Content-type": "application/json"
+    },
+    "status": 200
+  }
+}
