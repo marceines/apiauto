@@ -64,7 +64,7 @@ class Comments(unittest.TestCase):
 
     def test_update_comment_on_task(self):
         data = {
-            "content": "Comment edited"
+            "content": "Comments edited"
         }
         comments = self.get_comments_task()
         comment_id = comments["body"][0]
