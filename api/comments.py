@@ -1,7 +1,7 @@
 import logging
 import unittest
 from logging import Logger
-from typing import Dict, Any
+
 
 import requests
 
