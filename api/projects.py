@@ -43,7 +43,7 @@ class Projects(unittest.TestCase):
         ValidateResponse().validate_response(actual_response=response, method="get", expected_status_code=200,
                                              feature="projects")
 
-    @params("Project 2", "1111111")
+    @params("Project 2", "Project3")
     def test_create_project(self, name_project):
         """
         Test for create project
