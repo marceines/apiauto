@@ -22,9 +22,9 @@ class Sections(unittest.TestCase):
         cls.todo = TodoBase()
         cls.projects_list = []
 
-    def test_create_session(self):
+    def test_create_section(self):
         """
-        Test to create session
+        Test to create section
         :return:
         """
 
@@ -34,8 +34,10 @@ class Sections(unittest.TestCase):
             "project_id": project_id,
             "name": "Section created by MB"
         }
+
         response = RestClient().send_request("post", session=self.session, url=self.url_section,
                                              headers=HEADERS, data=body_section)
+        LOGGER.debug("Section id generated: %s", response["body"]["id"])
         ValidateResponse().validate_response(actual_response=response, method="get", expected_status_code=200,
                                              feature="section")
         self.projects_list.append(project_id)
@@ -50,15 +52,15 @@ class Sections(unittest.TestCase):
 
 
     def test_get_all_sections_by_project(self):
-        all_projects = self.todo.get_all_projects()
-        project_id = all_projects["body"][0]["id"]
+        project_id_all = self.todo.get_all_projects()
+        project_id = project_id_all["body"][0]["id"]
         if project_id:
             url_section = f"{self.url_section}?project_id={project_id}"
 
-        response = RestClient().send_request("get", session=self.session, headers=HEADERS,
-                                             url=url_section)
-        LOGGER.info("Number of sections returned: %s", len(response["body"]))
-
+        response = RestClient().send_request("get", session=self.session, url=self.url_section,
+                                             headers=HEADERS)
+        ValidateResponse().validate_response(actual_response=response, method="get", expected_status_code=200,
+                                            feature="sections")
 
     def test_get_section(self):
         response = self.todo.get_all_sections()
@@ -67,6 +69,8 @@ class Sections(unittest.TestCase):
         url_section = f"{self.url_section}/{section_id}"
         response = RestClient().send_request("get", session=self.session, headers=HEADERS,
                                              url=url_section)
+        ValidateResponse().validate_response(actual_response=response, method="get", expected_status_code=200,
+                                             feature="section")
 
 
     def test_update_section(self):
@@ -79,6 +83,9 @@ class Sections(unittest.TestCase):
         url_section = f"{self.url_section}/{section_id}"
         response = RestClient().send_request("post", session=self.session, headers=HEADERS,
                                              url=url_section, data=data)
+        ValidateResponse().validate_response(actual_response=response, method="get", expected_status_code=200,
+                                             feature="section")
+
 
     def test_delete_section(self):
 
@@ -94,7 +101,9 @@ class Sections(unittest.TestCase):
         url_section = f"{self.url_section}/{section_id}"
         response = RestClient().send_request("delete", session=self.session, headers=HEADERS,
                                              url=url_section)
-
+        ValidateResponse().validate_response(actual_response=response, method="delete", expected_status_code=204,
+                                             feature="project")
+        self.projects_list.append(project_id)
 
     @classmethod
     def tearDownClass(cls):

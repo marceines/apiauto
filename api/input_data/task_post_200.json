@@ -1,0 +1,41 @@
+{
+  "request": {
+    "method": "POST",
+    "url": "/tasks",
+    "body": {
+      "name": "Task created by MB"
+    }
+  },
+"response": {
+    "body": {
+	"id": "7282499163",
+	"assigner_id": null,
+	"assignee_id": null,
+	"project_id": "2319679387",
+	"section_id": null,
+	"parent_id": null,
+	"order": 32,
+	"content": "Task inside section",
+	"description": "",
+	"is_completed": false,
+	"labels": [],
+	"priority": 4,
+	"comment_count": 0,
+	"creator_id": "45709149",
+	"created_at": "2023-10-03T01:00:03.554378Z",
+	"due": {
+		"date": "2023-10-03",
+		"string": "tomorrow at 12:00",
+		"lang": "en",
+		"is_recurring": false,
+		"datetime": "2023-10-03T12:00:00"
+	},
+	"url": "https://todoist.com/showTask?id=7282499163",
+	"duration": null
+},
+    "headers": {
+      "Content-type": "application/json"
+    },
+    "status": 200
+  }
+}

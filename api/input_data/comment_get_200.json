@@ -1,0 +1,38 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "/projects"
+  },
+"response": {
+    "body": {
+		"id": "7282283142",
+		"assigner_id": null,
+		"assignee_id": null,
+		"project_id": "2319679387",
+		"section_id": null,
+		"parent_id": null,
+		"order": 15,
+		"content": "Task inside section",
+		"description": "",
+		"is_completed": false,
+		"labels": [],
+		"priority": 4,
+		"comment_count": 0,
+		"creator_id": "45709149",
+		"created_at": "2023-10-02T22:48:20.582517Z",
+		"due": {
+			"date": "2023-10-03",
+			"string": "tomorrow at 12:00",
+			"lang": "en",
+			"is_recurring": false,
+			"datetime": "2023-10-03T12:00:00"
+		},
+		"url": "https://todoist.com/showTask?id=7282283142",
+		"duration": null
+	},
+    "headers": {
+      "Content-type": "application/json"
+    },
+    "status": 200
+  }
+}

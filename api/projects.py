@@ -38,8 +38,6 @@ class Projects(unittest.TestCase):
         """
         response = RestClient().send_request(method_name="get", session=self.session,
                                              url=self.url_base, headers=HEADERS)
-        print(type(response))
-        print(response)
         ValidateResponse().validate_response(actual_response=response, method="get", expected_status_code=200,
                                              feature="projects")
 

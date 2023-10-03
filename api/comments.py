@@ -5,6 +5,7 @@ from logging import Logger
 
 import requests
 
+from api.validate_response import ValidateResponse
 from api.todo_base import TodoBase
 from config.config import HEADERS
 from utils.logger import get_logger
@@ -26,12 +27,14 @@ class Comments(unittest.TestCase):
         response = self.get_comments_task()
         LOGGER.info("Number of comments returned: %s", len(response["body"]))
 
+
     def test_get_all_comments_by_project_id(self):
         all_projects = self.todo.get_all_projects()
         project_id = all_projects["body"][0]["id"]
         url_comments_project = f"{self.url_comments}?project_id={project_id}"
         response = RestClient().send_request("get", session=self.session, headers=HEADERS, url=url_comments_project)
         LOGGER.info("Number of comments returned: %s", len(response["body"]))
+
 
     def test_create_comment_on_task(self):
         task_id_all = self.todo.get_all_tasks()
